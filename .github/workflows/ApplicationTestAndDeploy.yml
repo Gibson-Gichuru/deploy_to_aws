@@ -1,0 +1,26 @@
+name: Application Test And Deployment
+
+on:
+
+  push:
+
+    branches:
+
+      - main
+
+jobs:
+
+  Testing:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: checking out the repo
+
+        uses: actions@checkout@v2
+
+      - name: Testing workflow
+
+        run: echo "Running a smoke test"
+
