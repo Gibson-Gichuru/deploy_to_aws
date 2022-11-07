@@ -17,7 +17,7 @@ jobs:
     steps:
 
       - name: checking out the application
-        uses: actions@checkout@v2
+        uses: actions/checkout@v2
 
       - name: setting up python environment
         uses: actions/setup-python@v2
