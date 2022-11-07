@@ -1,4 +1,4 @@
-name: Application Test And Deployment
+name: Application Testing and Deployment
 
 on:
 
@@ -16,11 +16,35 @@ jobs:
 
     steps:
 
-      - name: checking out the repo
+      - name: checking out the application
 
         uses: actions@checkout@v2
 
-      - name: Testing workflow
+      - name: setting up python environment
 
-        run: echo "Running a smoke test"
+        uses: actions/setup-python@v2
+
+      - name: Installing Dependencies
+
+        run: |
+
+          python -m pip install --upgrade pip
+
+          pip install -r requirements.txt
+
+      - name: Testing the application
+
+        run: flask test
+
+      - name: Linting  the  application
+
+        run: |
+
+          pip install flake8
+
+          flake8 api --count --select E9,F63,F7,F82 --exclude __pycache__,env --show-source --statistics
+
+          flake8 api --count --max-complexity=10 --max-line-length=100 --ignore E121,E126,E231,E123,W503,W293,W504 --exclude __pycache__,migrations,env --show-source --statistics
+
+
 
