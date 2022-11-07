@@ -11,4 +11,10 @@ def create_app(config):
 
     env_config[config].init_app(app)
 
+    # Registering Application Blueprints
+
+    from app.main import main_blueprint
+
+    app.register_blueprint(main_blueprint)
+
     return app
