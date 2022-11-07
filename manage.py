@@ -14,7 +14,7 @@ def test():
 
     # running unittests
 
-    tests  = unittest.TestLoader().discover("tests")
+    tests = unittest.TestLoader().discover("tests")
 
     results = unittest.TextTestRunner(verbosity=2).run(tests)
 

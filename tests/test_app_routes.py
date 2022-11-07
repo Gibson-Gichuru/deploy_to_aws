@@ -9,7 +9,6 @@ class TestAppRoutes(TestBaseConfig):
 
         self.client = self.app.test_client()
 
-
     def test_home_route(self):
 
         response = self.client.get("/").get_json()

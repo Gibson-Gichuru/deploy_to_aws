@@ -2,6 +2,7 @@ from unittest import TestCase
 
 from app import create_app
 
+
 class TestBaseConfig(TestCase):
 
     def setUp(self):

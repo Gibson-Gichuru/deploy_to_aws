@@ -3,7 +3,7 @@ class DefaultConfig:
     @staticmethod
     def init_app(app):
 
-        pass 
+        pass
 
 
 class Development(DefaultConfig):
@@ -11,7 +11,8 @@ class Development(DefaultConfig):
     @staticmethod
     def init_app(app):
         
-        pass 
+        pass
+
 
 class Testing:
 
@@ -20,7 +21,7 @@ class Testing:
     @staticmethod
     def init_app(app):
 
-        pass 
+        pass
 
 
 class Production:
