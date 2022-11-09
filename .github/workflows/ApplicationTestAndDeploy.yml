@@ -44,5 +44,23 @@ jobs:
 
           flake8 . --count --max-complexity=10 --max-line-length=100 --ignore E121,E126,E231,E123,W503,W293,W504 --exclude __pycache__,migrations,env --show-source --statistics
 
+  Deploying:
 
+    runs-on: self-hosted
 
+    steps:
+
+      - name: Checking out the repo
+        uses: actions/checkout@v2
+
+      - name: install depedencies
+
+        run: |
+
+          pip install -r requirements.txt
+
+      - name: Run the appication
+
+        run: |
+
+          gunicorn -b 0.0.0.0:80 -w 4 app:manage
