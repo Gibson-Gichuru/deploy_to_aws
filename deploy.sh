@@ -111,7 +111,7 @@ deploy_updates
 
 # if deploy exits with code 0 then configure nginx
 
-if [ $? -eq 0];then
+if [ $? -eq 0 ];then
 
     configure_nginx
 fi
