@@ -4,7 +4,7 @@ After=network.target
 [Service]
 User=ubuntu
 Group=www-data
-WorkingDirectory=/home/ubuntu/actions-runner/_work/deploy_to_aws
-ExecStart=/home/ubuntu/actions-runner/_work/deploy_to_aws/deploy_to_aws/env/bin/ 
+WorkingDirectory=/home/ubuntu/actions-runner/_work/deploy_to_aws/deploy_to_aws
+ExecStart=/home/ubuntu/actions-runner/_work/deploy_to_aws/deploy_to_aws/env/bin/uwsgi --ini app.ini
 [Install]
 WantedBy=multi-user.target
