@@ -62,7 +62,7 @@ function deploy_updates(){
 
         # reload-or-start the api service
 
-        systemctl reload-or-restart api 
+        sudo systemctl reload-or-restart api 
 
 
 
