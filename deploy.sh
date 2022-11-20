@@ -33,6 +33,7 @@ function deploy_updates(){
 
         fi
 
+
         # install any dependencies
 
         install_depedencies
@@ -40,6 +41,15 @@ function deploy_updates(){
         # perform and database migrations
 
         run_database_migrations
+
+        # overwite service file
+
+        sudo mv $PWD/api.service /etc/systemd/system/api.service
+
+
+        # reload systemctl deamon
+
+        sudo systemctl daemon-reload
 
         # reload-or-start the api service
 
