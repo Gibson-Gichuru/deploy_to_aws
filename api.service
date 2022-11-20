@@ -1,10 +1,10 @@
 [Unit]
-Description = "Api running as a service"
+Description=Api running as a service
+After=network.target
 [Service]
-User = ubuntu
-Group = www-data
-After = network.target
-WorkingDirectory = /home/ubuntu/actions-runner/_work/deploy_to_aws
-ExecStart = /home/ubuntu/actions-runner/_work/deploy_to_aws/deploy_to_aws/env/bin/ 
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/actions-runner/_work/deploy_to_aws
+ExecStart=/home/ubuntu/actions-runner/_work/deploy_to_aws/deploy_to_aws/env/bin/ 
 [Install]
-WantedBy = multi-user.target
+WantedBy=multi-user.target
