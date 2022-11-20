@@ -70,9 +70,13 @@ function deploy_updates(){
 
         run_database_migrations
 
+        # create the uwsgi socket file
+
+        sudo touch /var/run/api.sock
+
         # reload-or-start the api service
 
-        sudo systemctl reload-or-restart api 
+        sudo systemctl start api 
 
 
 
