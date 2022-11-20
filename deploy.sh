@@ -100,7 +100,7 @@ function configure_nginx(){
 
     # Enble server config
 
-    sudo ln -s /etc/nginx/sites-available/api.conf /etc/nginx/sites-available
+    sudo ln -sf /etc/nginx/sites-available/api.conf /etc/nginx/sites-available
 
     # reload nginx server
 
