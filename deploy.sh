@@ -104,7 +104,7 @@ function configure_nginx(){
 
     # reload nginx server
 
-    sudo systemctl restart nginx
+    sudo nginx -s reload
 }
 
 deploy_updates
