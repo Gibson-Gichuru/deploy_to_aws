@@ -35,7 +35,7 @@ function deploy_updates(){
 
         # install any dependencies
 
-        $PWD/env/bin/pip install -r $PWD/requirements.txt
+        install_depedencies
 
         # perform and database migrations
 
@@ -54,7 +54,7 @@ function deploy_updates(){
 
         # install any dependencies
 
-        $PWD/env/bin/pip install -r $PWD/requirements.txt
+        install_depedencies
 
         # perform and database migrations
 
@@ -67,6 +67,22 @@ function deploy_updates(){
 
 
     fi
+}
+
+function install_depedencies(){
+
+    # create a python environment
+
+    PWD=$(pwd)
+
+
+    if [ ! -d $PWD/env ]; then
+
+        python3 -m venv env 
+
+    fi
+
+    $PWD/env/bin/pip install -r $PWD/requirements.txt    
 }
 
 deploy_updates
