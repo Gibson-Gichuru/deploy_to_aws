@@ -6,6 +6,7 @@ trap 'current_command=$BASH_COMMAND' DEBUG
 
 trap 'echo "\"${current_command}\" command filed with exit code $?."' EXIT
 
+PWD=$(pwd)
 
 function run_database_migrations(){
 
@@ -14,7 +15,6 @@ function run_database_migrations(){
 
 function deploy_updates(){
 
-    PWD=$(pwd)
 
     if [ -f "/etc/systemd/system/api.service" ]; then
 
@@ -83,9 +83,6 @@ function install_depedencies(){
 
     # create a python environment
 
-    PWD=$(pwd)
-
-
     if [ ! -d $PWD/env ]; then
 
         python3 -m venv env 
@@ -95,4 +92,26 @@ function install_depedencies(){
     $PWD/env/bin/pip install -r $PWD/requirements.txt    
 }
 
+function configure_nginx(){
+
+    # copy application server config file to sites-available
+
+    sudo cp $PWD/api.conf /etc/nginx/sites-available
+
+    # Enble server config
+
+    sudo ln -s /etc/nginx/sites-available/api.conf /etc/nginx/sites-available
+
+    # reload nginx server
+
+    sudo systemctl restart nginx
+}
+
 deploy_updates
+
+# if deploy exits with code 0 then configure nginx
+
+if [ $? -eq 0];then
+
+    configure_nginx
+fi
