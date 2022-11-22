@@ -72,7 +72,7 @@ function deploy_updates(){
 
         # create the uwsgi socket file
 
-        sudo touch /var/run/api.sock
+        sudo touch /tmp/api.sock
 
         # reload-or-start the api service
 
