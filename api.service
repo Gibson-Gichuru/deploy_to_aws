@@ -2,8 +2,6 @@
 Description=Api running as a service
 After=network.target
 [Service]
-User=www-data
-Group=www-data
 WorkingDirectory=/home/ubuntu/actions-runner/_work/deploy_to_aws/deploy_to_aws
 ExecStart=/home/ubuntu/actions-runner/_work/deploy_to_aws/deploy_to_aws/env/bin/uwsgi --ini api.ini
 [Install]
