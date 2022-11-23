@@ -4,8 +4,8 @@ After=network.target
 [Service]
 User=ubuntu
 Group=www-data
-WorkingDirectory=/home/ubuntu/actions-runner/_work/deploy_to_aws/deploy_to_aws
-Environment="PATH=/home/ubuntu/actions-runner/_work/deploy_to_aws/deploy_to_aws/env/bin"
-ExecStart=/home/ubuntu/actions-runner/_work/deploy_to_aws/deploy_to_aws/env/bin/gunicorn -w 3 -b unix:api.sock -m 007 manage:application
+WorkingDirectory=/home/ubuntu/actions-runner/api/deploy_to_aws/deploy_to_aws
+Environment="PATH=/home/ubuntu/actions-runner/api/deploy_to_aws/deploy_to_aws/env/bin"
+ExecStart=/home/ubuntu/actions-runner/api/deploy_to_aws/deploy_to_aws/env/bin/gunicorn -w 3 -b unix:api.sock -m 007 manage:application
 [Install]
 WantedBy=multi-user.target
