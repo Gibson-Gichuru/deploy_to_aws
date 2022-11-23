@@ -3,6 +3,6 @@ Description=Api running as a service
 After=network.target
 [Service]
 WorkingDirectory=/home/ubuntu/actions-runner/_work/deploy_to_aws/deploy_to_aws
-ExecStart=/home/ubuntu/actions-runner/_work/deploy_to_aws/deploy_to_aws/env/bin/gunicorn -workers 2 --bind unix:/tmp/api.sock -m 007 manage:app
+ExecStart=/home/ubuntu/actions-runner/_work/deploy_to_aws/deploy_to_aws/env/bin/gunicorn --workers 2 --bind unix:/tmp/api.sock -m 007 manage:app
 [Install]
 WantedBy=multi-user.target
