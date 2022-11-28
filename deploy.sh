@@ -55,6 +55,8 @@ function deploy_updates(){
 
         sudo systemctl reload-or-restart api 
 
+        sudo systemctl daemon-reload
+
 
     else
 
@@ -74,7 +76,7 @@ function deploy_updates(){
 
         sudo systemctl start api 
 
-
+        sudo systemctl daemon-reload
 
     fi
 }
